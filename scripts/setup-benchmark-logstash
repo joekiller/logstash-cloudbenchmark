@@ -1,0 +1,8 @@
+#!/bin/bash
+cd /opt/logstash14
+make tarball
+GEM_HOME=vendor/bundle/jruby/1.9 GEM_PATH= java -jar vendor/jar/jruby-complete-1.7.11.jar -S gem install logstash-kafka
+cp -R vendor/bundle/jruby/1.9/gems/logstash-kafka-*-java/{lib/logstash/*,spec/*} {lib/logstash/,spec/}
+cd /opt/logstash15
+rake test:install-core
+bin/plugin install logstash-codec-dots logstash-output-kafka

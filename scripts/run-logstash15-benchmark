@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+cd /opt/logstash15
+USE_RUBY=1 bin/logstash --quiet -f /opt/logstash-benchmark/etc/dots.conf  | pv -Wbart > /dev/null
