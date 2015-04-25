@@ -94,9 +94,16 @@
       "Metadata" : {
         "AWS::CloudFormation::Init" : {
           "config" : {
+            "packages" : {
+              "yum" : {
+                "git": [],
+                "pv": [],
+                "rake": []
+              }
+            },
             "sources" : {
-              "/opt/logstash14" : "https://github.com/elastic/logtash/tarball/1.4",
-              "/opt/logstash15" : "https://github.com/elastic/logtash/tarball/1.5",
+              "/opt/logstash14" : "https://github.com/elastic/logstash/tarball/1.4",
+              "/opt/logstash15" : "https://github.com/elastic/logstash/tarball/1.5",
               "/opt/logstash-benchmark" : "https://github.com/joekiller/logstash-cloudbenchmark/tarball/master"
             }
           }
